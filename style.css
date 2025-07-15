@@ -1,0 +1,192 @@
+/* === Общие стили === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #f0f0f0 url('assets/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #4B0082;
+  text-align: center;
+}
+
+.card {
+  margin: 60px auto;
+  padding: 20px;
+  max-width: 900px;
+  width: 95%;
+  border-radius: 20px;
+}
+
+/* === Заголовок === */
+h1 {
+  margin-bottom: 20px;
+  line-height: 1.4;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.h1-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.8s ease forwards;
+  color: #4B0082;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.h1-line.line2 {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Подарок === */
+.gift-container {
+  position: relative;
+  display: inline-block;
+  margin: 20px 0;
+}
+
+#gift {
+  width: 180px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+#gift:hover {
+  transform: scale(1.05) rotate(-5deg);
+}
+
+#gift.shaking {
+  animation: shake 0.6s ease-in-out;
+}
+
+#gift.opened {
+  display: none;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* === Подпись === */
+.click-text {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+/* === Поздравление === */
+.congrats-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding: 0 15px;
+}
+
+.congrats-text p {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: #4B0082;
+  font-weight: 600;
+  max-width: 400px;
+  text-align: left;
+}
+
+.signature {
+  display: block;
+  margin-top: 25px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #4B0082;
+}
+
+.congrats-photo img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* === Скрытый блок === */
+.hidden {
+  display: none;
+}
+
+/* === Адаптив === */
+@media screen and (max-width: 768px) {
+  .h1-line {
+    font-size: 2rem;
+  }
+
+  .congrats-wrapper {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .congrats-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .signature {
+    font-size: 1rem;
+  }
+
+  #gift {
+    width: 140px;
+  }
+
+  .click-text {
+    font-size: 0.9rem;
+    padding: 4px 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .h1-line {
+    font-size: 1.6rem;
+  }
+
+  .congrats-text p {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .click-text {
+    font-size: 0.8rem;
+  }
+}

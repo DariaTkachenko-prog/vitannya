@@ -1,0 +1,64 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Марина, з Днем народження!</title>
+  <base href="/vitannyaMarina/" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="card">
+    <h1>
+      <span class="h1-line line1">МАРИНА, ВІТАЄМО ТЕБЕ</span>
+      <span class="h1-line line2">З ДНЕМ НАРОДЖЕННЯ 🎉</span>
+    </h1>
+
+    <div class="gift-container">
+      <img src="assets/gift.png" alt="Подарунок" id="gift" />
+      <span class="click-text">Натисни на подарунок 🎁</span>
+    </div>
+
+    <div class="congrats-wrapper hidden">
+      <div class="congrats-text">
+        <p>
+          <span class="line">Нехай життя дарує несподівані бонуси,</span><br />
+          <span class="line">дні минають легко, а поруч завжди будуть ті, з ким тепло.</span><br />
+          <span class="line">Бажаємо тобі всього — але тільки найкращого 💫</span><br /><br />
+          <strong class="signature">Твоя команда АФ “Наша бухгалтерія” 💼</strong>
+        </p>
+      </div>
+      <div class="congrats-photo">
+        <img src="assets/congrats-image.png" alt="Привітальне фото" />
+      </div>
+    </div>
+  </div>
+
+  <audio id="bg-music" src="assets/music.mp3" loop></audio>
+  <audio id="open-sound" src="assets/open.mp3"></audio>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const gift = document.getElementById("gift");
+      const bgMusic = document.getElementById("bg-music");
+      const openSound = document.getElementById("open-sound");
+      const clickText = document.querySelector(".click-text");
+      const congratsWrapper = document.querySelector(".congrats-wrapper");
+
+      gift.addEventListener("click", () => {
+        openSound.play();
+        gift.classList.add("shaking");
+
+        setTimeout(() => {
+          gift.classList.remove("shaking");
+          gift.classList.add("opened");
+
+          if (clickText) clickText.remove();
+          congratsWrapper.classList.remove("hidden");
+
+          bgMusic.play();
+        }, 800);
+      });
+    });
+  </script>
+</body>
+</html>
